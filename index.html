@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapy with Caroline | RSW, MSW | Real Talk Meets Therapy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --cream: #FAF7F2;
+            --warm-beige: #E8DFD0;
+            --sage: #9BAA8E;
+            --deep-sage: #6B7D5C;
+            --charcoal: #2C2C2C;
+            --black: #000000;
+            --soft-pink: #E8C4BC;
+            --accent-coral: #D87355;
+            --accent-gold: #D4A574;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'EB Garamond', serif;
+            line-height: 1.8;
+            color: var(--charcoal);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--deep-sage) 100%);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background: rgba(107, 125, 92, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            font-family: 'DM Sans', sans-serif;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--warm-beige) 0%, var(--cream) 100%);
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239BAA8E' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.4;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            margin-bottom: 1.5rem;
+            color: var(--deep-sage);
+            line-height: 1.1;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            font-weight: 500;
+        }
+        
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            color: var(--charcoal);
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-coral);
+            color: white;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(216, 115, 85, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(216, 115, 85, 0.4);
+        }
+        
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 99;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s ease;
+        }
+        
+        .floating-cta.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Section Styles */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 7rem 2rem;
+            scroll-margin-top: 80px;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+            color: var(--black);
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            margin-bottom: 4rem;
+            opacity: 0.85;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Curved Divider */
+        .curved-divider {
+            width: 100%;
+            height: 80px;
+            background: var(--cream);
+            position: relative;
+            margin-top: -1px;
+        }
+        
+        .curved-divider svg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* About Section */
+        .about {
+            background: white;
+            border-radius: 30px;
+            padding: 5rem;
+            margin: 4rem auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '✨';
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 3rem;
+            opacity: 0.1;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .profile-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.03) rotate(1deg);
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--black);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .credentials {
+            background: linear-gradient(135deg, var(--warm-beige) 0%, rgba(232, 223, 208, 0.5) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2.5rem;
+            border-left: 4px solid var(--accent-coral);
+        }
+        
+        .credentials h4 {
+            margin-bottom: 1rem;
+            color: var(--black);
+            font-size: 1.3rem;
+        }
+        
+        .credentials p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* This Space Is For You Section */
+        .for-you-section {
+            background: linear-gradient(135deg, var(--soft-pink) 0%, rgba(232, 196, 188, 0.6) 100%);
+            padding: 7rem 2rem;
+            margin: 0;
+            position: relative;
+        }
+        
+        .for-you-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .for-you-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .for-you-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--deep-sage) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .for-you-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .for-you-card:hover::before {
+            opacity: 0.03;
+        }
+        
+        .for-you-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .for-you-card p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: var(--warm-beige);
+            border-radius: 0 20px 0 100%;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+            transform: translateY(-8px) rotate(-1deg);
+            border-left-color: var(--accent-coral);
+        }
+        
+        .service-card:hover::after {
+            width: 120px;
+            height: 120px;
+            opacity: 0.5;
+        }
+        
+        .service-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card li {
+            padding: 0.7rem 0;
+            padding-left: 2rem;
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+        
+        .service-card li:hover {
+            transform: translateX(5px);
+        }
+        
+        .service-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-coral);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Expressive Writing Section */
+        .expressive-writing {
+            background: linear-gradient(135deg, var(--deep-sage) 0%, var(--sage) 100%);
+            color: white;
+            padding: 8rem 2rem;
+            margin: 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .expressive-writing::before {
+            content: '✍️';
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            font-size: 8rem;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .expressive-writing::after {
+            content: '💭';
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+            font-size: 6rem;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .expressive-writing h2 {
+            color: white;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .expressive-writing .subtitle {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .expressive-writing > p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .writing-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .writing-feature {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .writing-feature:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .writing-feature h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: var(--cream);
+            padding: 7rem 2rem;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            padding: 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: var(--black);
+            transition: color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: var(--accent-coral);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 2rem;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 0 2rem 2rem 2rem;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #c96648 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            margin: 0;
+        }
+        
+        .newsletter h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: 'EB Garamond', serif;
+        }
+        
+        .newsletter-form button {
+            padding: 1rem 2.5rem;
+            background: white;
+            color: var(--accent-coral);
+            border: none;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button:hover {
+            background: var(--warm-beige);
+            transform: translateY(-2px);
+        }
+        
+        /* Booking Section */
+        .booking {
+            background: var(--warm-beige);
+            padding: 7rem 2rem;
+            text-align: center;
+        }
+        
+        .booking-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .booking h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            color: var(--black);
+        }
+        
+        .booking-details {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .booking-details h3 {
+            color: var(--black);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .booking-details p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            color: var(--deep-sage);
+            font-size: 0.95rem;
+        }
+        
+        .contact-info {
+            margin-top: 3rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-info a {
+            color: var(--accent-coral);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: var(--deep-sage);
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        footer a {
+            color: var(--sage);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: var(--accent-coral);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            section {
+                padding: 5rem 2rem;
+            }
+            
+            .about {
+                padding: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--deep-sage);
+                flex-direction: column;
+                padding: 6rem 2rem 2rem 2rem;
+                transition: right 0.4s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hero {
+                padding: 5rem 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .for-you-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .writing-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .about {
+                padding: 2rem;
+            }
+            
+            .floating-cta {
+                bottom: 1rem;
+                right: 1rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Focus States for Accessibility */
+        a:focus, button:focus, input:focus {
+            outline: 3px solid var(--accent-coral);
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">Therapy with Caroline</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#expressive-writing">Expressive Writing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#booking">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta" id="floatingCta">
+        <a href="#booking" class="cta-button">Book Free Consultation</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hi 👋🏻 I'm Caroline</h1>
+            <p class="subtitle">This is a space where real talk meets therapy and expressive writing gets the spotlight</p>
+            <p>I'm a registered social worker and psychotherapist working in private practice. Together we can navigate anxiety, depression, grief, ADHD or just life in general 🤝 (I know I'm tired already too)</p>
+            <a href="#booking" class="cta-button">Book Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about fade-in">
+        <div class="about-content">
+            <img src="https://i.ibb.co/BVq2QbgR/320x400.jpg" alt="Caroline Duffy, RSW, MSW" class="profile-image">
+            <div class="about-text">
+                <h2>Welcome to Your Space</h2>
+                <p>Parenting a teenager who seems anxious, overwhelmed, or burned out can leave you wondering how to help without making things worse. Many of the youth I work with are bright, sensitive, and capable, yet internally they're struggling to keep up with school, relationships, and the pressure they feel to "hold it together."</p>
+                <p>I specialize in working with youth and teens ages 12–18 who experience anxiety, school stress, emotional overwhelm, friendship challenges, family relationship difficulties, and concerns related to self-esteem.</p>
+                <p>I take a collaborative approach that supports teens and includes parents in meaningful ways. Sessions are shaped around each teen's interests and strengths, helping create a therapeutic space they feel engaged in. Teens build understanding and skills, while parents receive guidance to support connection and communication at home.</p>
+                <div class="credentials">
+                    <h4>Credentials</h4>
+                    <p><strong>Caroline Duffy, RSW, MSW</strong></p>
+                    <p>Master of Social Work, University of Toronto</p>
+                    <p>Bachelor of Indigenous Social Work, Laurentian University</p>
+                    <p>Registered with Ontario Association of Social Workers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- This Space Is For You -->
+    <section class="for-you-section">
+        <h2 class="section-title fade-in" style="color: var(--black);">This Space Is For You If...</h2>
+        <div class="for-you-grid">
+            <div class="for-you-card fade-in">
+                <h3>I've got a lot on my mind (all the time)</h3>
+                <p>Your thoughts are running a marathon and you need a place to slow down and make sense of it all</p>
+            </div>
+            <div class="for-you-card fade-in">
+                <h3>I'm looking for practical mental health 'tools' (that actually work)</h3>
+                <p>You're ready for strategies that fit into real life, not just theory</p>
+            </div>
+            <div class="for-you-card fade-in">
+                <h3>I'm ready to heal (maybe)</h3>
+                <p>You're curious about therapy, even if you're not 100% sure where to start</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title fade-in">What I Can Help With</h2>
+        <p class="section-subtitle fade-in">Here's the vibe: 🧠 Practical tools to help you make sense of your mind<br>✍️ Writing as a way to build connection with yourself and others<br>🫶🏻 Support that feels completely relevant for how beautifully exhausting life can be</p>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <h3>For Teens & Youth (12-18)</h3>
+                <p>A space for teens to make sense of things all from the comfort of their own home. Therapy with me is flexible and tailored to what a teen is actually going through.</p>
+                <ul>
+                    <li>Anxiety & stress management</li>
+                    <li>School stress & academic pressure</li>
+                    <li>Friendship challenges</li>
+                    <li>Family relationship difficulties</li>
+                    <li>Self-esteem & identity</li>
+                    <li>ADHD support</li>
+                </ul>
+            </div>
+            
+            <div class="service-card fade-in">
+                <h3>For Adults</h3>
+                <p>Supporting neuro-divergent folks, especially those with ADHD, is close to my heart. I work with adults who feel overwhelmed, scattered, or like they're "too much" - but also exhausted from trying to be someone they're not.</p>
+                <ul>
+                    <li>ADHD & neurodivergence</li>
+                    <li>Anxiety & depression</li>
+                    <li>Life transitions</li>
+                    <li>Relationship issues</li>
+                    <li>Grief & loss</li>
+                    <li>Trauma & PTSD</li>
+                </ul>
+            </div>
+            
+            <div class="service-card fade-in">
+                <h3>My Approach</h3>
+                <p>Sessions may include conversation, practical tools, creative expression, or simply slowing things down when life feels overwhelming. We focus on what feels helpful and manageable in the moment.</p>
+                <ul>
+                    <li>Trauma-informed care</li>
+                    <li>Dialectical Behavior Therapy (DBT)</li>
+                    <li>Cognitive Behavioural Therapy (CBT)</li>
+                    <li>Expressive Arts</li>
+                    <li>Attachment-based therapy</li>
+                    <li>Mindfulness-Based approaches</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expressive Writing Section -->
+    <section id="expressive-writing" class="expressive-writing">
+        <h2 class="fade-in">🎙️ Expressive Writing</h2>
+        <p class="subtitle fade-in">The messy, chaotic, unfiltered cousin of journaling who may spill too much tea at the family reunion</p>
+        <p class="fade-in" style="max-width: 800px; margin: 0 auto 2rem;">In all seriousness, what even is expressive writing? It's a powerful tool for processing emotions, building self-awareness, and connecting with yourself in a whole new way.</p>
+        
+        <div class="writing-features">
+            <div class="writing-feature fade-in">
+                <h4>🚫 A judgement free zone</h4>
+                <p>No rules, no perfection needed</p>
+            </div>
+            <div class="writing-feature fade-in">
+                <h4>🖊️ Find your flow</h4>
+                <p>Get out raw, messy emotions without filtering</p>
+            </div>
+            <div class="writing-feature fade-in">
+                <h4>🥲 No structure required</h4>
+                <p>Follow the mind and see where it goes</p>
+            </div>
+            <div class="writing-feature fade-in">
+                <h4>🫶🏻 Led with compassion</h4>
+                <p>Curiosity over perfection, always</p>
+            </div>
+            <div class="writing-feature fade-in">
+                <h4>💬 Say what's real</h4>
+                <p>Write what's on your mind, not what you 'should' say</p>
+            </div>
+        </div>
+        
+        <p style="margin-top: 3rem; font-size: 1.2rem;">💌 Ready for the emotionally unhinged era starter kit? 💌</p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    How do online therapy sessions work?
+                </div>
+                <div class="faq-answer">
+                    <p>All sessions are conducted online from the comfort of your own home. We use a secure video platform, and you can join from anywhere in Ontario. It's just like meeting in person, but more convenient and accessible.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    Do you offer a free consultation?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! I offer a free 15-minute consultation so we can chat about what you're going through and see if we're a good fit. There's no pressure—it's just a conversation to help you decide if therapy feels right for you.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    What are your fees and do you accept insurance?
+                </div>
+                <div class="faq-answer">
+                    <p>Individual sessions are $150. Sessions can be billed under Social Work or Psychology Benefits with many insurance providers. A sliding scale is available for those who qualify. Please inquire before your appointment about coverage options.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    What if I'm not sure therapy is right for me?
+                </div>
+                <div class="faq-answer">
+                    <p>That's completely normal! Many people feel uncertain when they first reach out. The free consultation is a great way to explore your concerns without any commitment. We can talk about what you're experiencing and whether therapy might be helpful.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    How long does therapy typically last?
+                </div>
+                <div class="faq-answer">
+                    <p>It varies! Some people find what they need in a few months, while others benefit from longer-term support. We'll work together to figure out what makes sense for you, and you're always in control of how long you'd like to continue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <h2 class="fade-in">Stay Connected</h2>
+        <p class="fade-in">Get expressive writing tips, mental health insights, and real talk delivered to your inbox</p>
+        <form class="newsletter-form fade-in" onsubmit="event.preventDefault(); alert('Newsletter signup coming soon!');">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="booking-content">
+            <h2 class="fade-in">Ready to Get Started?</h2>
+            <p class="fade-in">If you're wondering whether therapy could be helpful, you're not alone. Many people reach out during periods of uncertainty, transition, or ongoing stress. I offer a supportive space to explore concerns and consider options together.</p>
+            
+            <div class="booking-details fade-in">
+                <h3>Free 15-Minute Consultation</h3>
+                <p>Start with a no-pressure conversation to see if we're a good fit</p>
+                <a href="https://therapywithcare.janeapp.com" class="cta-button" style="margin: 1.5rem 0; display: inline-block;">Book on Jane</a>
+                
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid var(--warm-beige);">
+                    <h3>Session Details</h3>
+                    <p><strong>Individual Sessions:</strong> $150</p>
+                    <p><strong>Sliding scale available</strong> - inquire if you may be eligible</p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem;">Sessions can be billed under Social Work or Psychology Benefits. Please inquire before your appointment about coverage/options for billing.</p>
+                </div>
+            </div>
+            
+            <div class="trust-badges fade-in">
+                <div class="badge">🔒 Secure & Confidential</div>
+                <div class="badge">✓ OASW Member</div>
+                <div class="badge">💚 Ontario Licensed</div>
+            </div>
+            
+            <div class="contact-info fade-in">
+                <p><strong>Phone:</strong> <a href="tel:+14373202962">(437) 320-2962</a></p>
+                <p><strong>Location:</strong> Online therapy available throughout Ontario</p>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem;">Available online only - sessions from the comfort of your own home</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Caroline Duffy, RSW, MSW</strong></p>
+        <p>Registered Social Worker & Psychotherapist</p>
+        <p style="margin-top: 1rem;">Ontario Association of Social Workers Member #26077</p>
+        <p>Licensed by Province of Ontario #841998</p>
+        <p style="margin-top: 2rem;">
+            <a href="https://www.psychologytoday.com/ca/therapists/caroline-duffy-georgina-on/1533455">Psychology Today Profile</a> | 
+            <a href="https://therapywithcare.janeapp.com">Book on Jane</a>
+        </p>
+        <p style="margin-top: 2rem; font-size: 0.9rem;">&copy; 2026 Therapy with Caroline. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Floating CTA visibility
+        const floatingCta = document.getElementById('floatingCta');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 800) {
+                floatingCta.classList.add('visible');
+            } else {
+                floatingCta.classList.remove('visible');
+            }
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+                
+                // Toggle current FAQ
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
