@@ -71,11 +71,21 @@
         
         .logo {
             font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: white;
             text-decoration: none;
             transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .logo-emphasis {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 3rem;
+            letter-spacing: 0.05em;
         }
         
         .logo:hover {
@@ -690,7 +700,9 @@
     <!-- Header -->
     <header id="header">
         <nav>
-            <a href="#" class="logo">Therapy with Caroline</a>
+            <a href="#" class="logo">
+                Therapy with <span class="logo-emphasis">CARE</span>
+            </a>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
