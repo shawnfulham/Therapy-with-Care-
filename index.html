@@ -518,7 +518,7 @@
         .expressive-writing {
             background: linear-gradient(135deg, var(--deep-sage) 0%, var(--sage) 100%);
             color: white;
-            padding: 6rem 2rem;
+            padding: clamp(4rem, 8vw, 8rem) 2rem;
             margin: 4rem 0 0 0;
             text-align: center;
         }
@@ -530,13 +530,13 @@
         
         .expressive-writing h2 {
             color: white;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1.5rem;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
             text-align: center;
         }
         
         .expressive-writing p {
-            font-size: 1.15rem;
+            font-size: clamp(1.05rem, 1.5vw, 1.25rem);
             margin-bottom: 2rem;
             line-height: 1.8;
             max-width: 900px;
@@ -546,18 +546,22 @@
         
         .writing-details {
             background: rgba(255, 255, 255, 0.15);
-            padding: 2.5rem;
+            padding: clamp(2rem, 4vw, 3.5rem);
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            margin: 2rem auto;
+            margin: clamp(2rem, 4vw, 3rem) auto;
             max-width: 900px;
             text-align: left;
         }
         
         .writing-details h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
             text-align: center;
+        }
+        
+        .writing-details p {
+            font-size: clamp(1rem, 1.3vw, 1.15rem);
         }
         
         .writing-details ul {
@@ -581,27 +585,28 @@
         /* Email Form Styles */
         .email-form {
             background: white;
-            padding: 2rem;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
             border-radius: 15px;
-            margin-top: 2rem;
-            max-width: 500px;
+            margin-top: clamp(1.5rem, 3vw, 2.5rem);
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .email-form h4 {
             color: var(--charcoal);
-            margin-bottom: 1rem;
+            margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
             text-align: center;
+            font-size: clamp(1.1rem, 1.5vw, 1.3rem);
         }
 
         .email-form input {
             width: 100%;
-            padding: 1rem;
+            padding: clamp(0.8rem, 1.5vw, 1.2rem);
             margin-bottom: 1rem;
             border: 2px solid var(--warm-beige);
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: clamp(0.95rem, 1.2vw, 1.05rem);
             font-family: 'EB Garamond', serif;
             transition: border-color 0.3s ease;
         }
@@ -615,10 +620,10 @@
             width: 100%;
             background: var(--accent-coral);
             color: white;
-            padding: 1rem;
+            padding: clamp(0.9rem, 1.5vw, 1.2rem);
             border: none;
             border-radius: 10px;
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 1.3vw, 1.15rem);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -635,6 +640,7 @@
             border-radius: 10px;
             text-align: center;
             display: none;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
         }
 
         .form-message.success {
