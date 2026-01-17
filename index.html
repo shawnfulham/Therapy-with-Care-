@@ -336,6 +336,8 @@
             box-shadow: 0 4px 15px rgba(216, 115, 85, 0.3);
             position: relative;
             overflow: hidden;
+            border: none;
+            cursor: pointer;
         }
         
         .cta-button::before {
@@ -574,6 +576,77 @@
             position: absolute;
             left: 0;
             font-size: 1.5rem;
+        }
+
+        /* Email Form Styles */
+        .email-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .email-form h4 {
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .email-form input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid var(--warm-beige);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'EB Garamond', serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .email-form input:focus {
+            outline: none;
+            border-color: var(--accent-coral);
+        }
+
+        .email-form .submit-button {
+            width: 100%;
+            background: var(--accent-coral);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .email-form .submit-button:hover {
+            background: var(--deep-sage);
+            transform: translateY(-2px);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
         }
         
         /* FAQ Section */
@@ -858,7 +931,7 @@
 
     <!-- Floating CTA -->
     <div class="floating-cta" id="floatingCta">
-        <a href="#booking" class="cta-button">Book Free Consultation</a>
+        <a href="https://therapywithcare.janeapp.com/#/staff_member/1/treatment/3" class="cta-button">Book Free Consultation</a>
     </div>
 
     <!-- Hero/Intro Section with Photo -->
@@ -869,7 +942,7 @@
                 <h1>Hi, I'm Caroline Duffy</h1>
                 <p>This is a space where real talk meets therapy and expressive writing gets the spotlight.</p>
                 <p>I'm a registered social worker and psychotherapist in private practice. Together we can navigate anxiety, depression, grief, ADHD, trauma, self-esteem, or relationships.</p>
-                <a href="#booking" class="cta-button">Book Your Free Consultation</a>
+                <a href="https://therapywithcare.janeapp.com/#/staff_member/1/treatment/3" class="cta-button">Book Your Free Consultation</a>
             </div>
         </div>
     </section>
@@ -882,6 +955,8 @@
         <p>My approach is collaborative and trauma-informed. I blend evidence-based tools like Dialectical Behavior Therapy, Cognitive Behavioural Therapy, somatic work, self-regulation techniques, and mindfulness-based approaches with creativity and expressive arts. Sessions are flexible and tailored to what you're actually going through, whether that includes conversation, practical tools, creative expression, or simply slowing things down when life feels overwhelming.</p>
         
         <p>I specialize in working with neuro-divergent folks, especially those with ADHD. I work with people who feel overwhelmed, scattered, or like they're "too much" but also exhausted from trying to be someone they're not. Together, we'll build understanding, self-trust, and tools that actually work for you.</p>
+        
+        <p>I hold a Master of Social Work (MSW) from Wilfrid Laurier University and a Bachelor of Social Work (BSW) from Ryerson University. I am a Registered Social Worker with the Ontario College of Social Workers and Social Service Workers (OCSWSSW) and a member of the Ontario Association of Social Workers (OASW).</p>
     </section>
 
     <!-- Services Section -->
@@ -932,10 +1007,16 @@
             <div class="writing-details fade-in">
                 <h3>Therapeutic Writing Group</h3>
                 <p>A 2-hour therapeutic group where we spend time exploring topics that create distress in our lives, such as boundaries, grief, attachment, and more. In the group, we focus on externalizing our stories and processing them in multiple ways: through expressive writing, orally, and through hearing others' experiences. We find safety in sharing within community and discover connection through creativity.</p>
-                <p style="margin-top: 1.5rem;">Please inquire about options and cost during your consultation.</p>
-                <p style="margin-top: 1.5rem; text-align: center;">
-                    <a href="#booking" class="cta-button">Get More Information</a>
-                </p>
+                
+                <div class="email-form">
+                    <h4>Get More Information</h4>
+                    <form id="writingInfoForm">
+                        <input type="text" id="nameInput" placeholder="Your Name" required>
+                        <input type="email" id="emailInput" placeholder="Your Email" required>
+                        <button type="submit" class="submit-button">Send Inquiry</button>
+                    </form>
+                    <div id="formMessage" class="form-message"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -949,7 +1030,7 @@
                     How much does therapy cost?
                 </div>
                 <div class="faq-answer">
-                    <p>Individual therapy sessions are $150 per session (50 minutes). A sliding scale is available for eligible clients who may need financial assistance. Please inquire during your free consultation to discuss options.</p>
+                    <p>Individual therapy sessions are $150 per session (50 minutes). A sliding scale is available for eligible clients who may need financial assistance.</p>
                 </div>
             </div>
             
@@ -982,10 +1063,10 @@
             
             <div class="faq-item fade-in">
                 <div class="faq-question">
-                    Do you accept insurance? What are your fees?
+                    Do you accept insurance?
                 </div>
                 <div class="faq-answer">
-                    <p>Sessions can be billed under Social Work or Psychology Benefits with many insurance providers. The session fee is $150, and most extended health benefit plans cover a portion or all of this cost. I can provide you with a receipt to submit to your insurance company. Please check with your insurance provider about your specific coverage before your first session.</p>
+                    <p>Sessions can be billed under Social Work Benefits with many insurance providers. The session fee is $150, and most extended health benefit plans cover a portion or all of this cost. I can provide you with a receipt to submit to your insurance company. Please check with your insurance provider about your specific coverage before your first session.</p>
                 </div>
             </div>
             
@@ -1099,13 +1180,13 @@
             <div class="booking-details fade-in">
                 <h3>Free 15-Minute Consultation</h3>
                 <p>Start with a no-pressure conversation to see if we're a good fit</p>
-                <a href="https://therapywithcare.janeapp.com" class="cta-button" style="margin: 1.5rem 0; display: inline-block;">Book on Jane</a>
+                <a href="https://therapywithcare.janeapp.com/#/staff_member/1/treatment/3" class="cta-button" style="margin: 1.5rem 0; display: inline-block;">Book on Jane</a>
                 
                 <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid var(--warm-beige);">
                     <h3>Session Details</h3>
                     <p><strong>Individual Sessions:</strong> $150</p>
-                    <p><strong>Sliding scale available</strong> - inquire if you may be eligible</p>
-                    <p style="margin-top: 1rem; font-size: 0.95rem;">Sessions can be billed under Social Work or Psychology Benefits. Please inquire before your appointment about coverage options.</p>
+                    <p><strong>Sliding scale available</strong></p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem;">Sessions can be billed under Social Work Benefits.</p>
                 </div>
             </div>
             
@@ -1211,6 +1292,33 @@
                     answer.classList.add('active');
                 }
             });
+        });
+
+        // Email form submission
+        document.getElementById('writingInfoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('nameInput').value;
+            const email = document.getElementById('emailInput').value;
+            const formMessage = document.getElementById('formMessage');
+            
+            // Create mailto link
+            const subject = encodeURIComponent('Expressive Writing Group Information Request');
+            const body = encodeURIComponent(`Hi Caroline,\n\nI'm interested in learning more about the Expressive Writing Group.\n\nName: ${name}\nEmail: ${email}\n\nPlease reach out to me with more information.\n\nThank you!`);
+            const mailtoLink = `mailto:info@therapywithcare.ca?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            formMessage.textContent = 'Opening your email client... Please send the email to complete your inquiry.';
+            formMessage.className = 'form-message success';
+            
+            // Reset form
+            setTimeout(() => {
+                document.getElementById('writingInfoForm').reset();
+                formMessage.style.display = 'none';
+            }, 5000);
         });
     </script>
 </body>
