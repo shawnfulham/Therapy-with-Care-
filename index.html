@@ -23,7 +23,6 @@
             --black: #000000;
             --soft-pink: #E8C4BC;
             --accent-coral: #D87355;
-            --accent-gold: #D4A574;
         }
         
         html {
@@ -75,7 +74,6 @@
             font-weight: 700;
             color: white;
             text-decoration: none;
-            font-family: 'DM Sans', sans-serif;
             transition: transform 0.3s ease;
         }
         
@@ -93,7 +91,6 @@
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-family: 'DM Sans', sans-serif;
             font-size: 1rem;
             transition: all 0.3s;
             position: relative;
@@ -142,32 +139,19 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
         
-        /* Hero Section */
+        /* Hero/Intro Section */
         .hero {
             background: linear-gradient(135deg, var(--warm-beige) 0%, var(--cream) 100%);
-            padding: 8rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239BAA8E' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.4;
-            z-index: 0;
+            padding: 6rem 2rem;
         }
         
         .hero-content {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 4rem;
+            align-items: center;
             animation: fadeInUp 0.8s ease-out;
         }
         
@@ -182,26 +166,30 @@
             }
         }
         
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 5rem);
-            margin-bottom: 1.5rem;
-            color: var(--deep-sage);
+        .profile-image {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .intro-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            color: var(--black);
             line-height: 1.1;
         }
         
-        .hero .subtitle {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-            color: var(--charcoal);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            font-weight: 500;
-        }
-        
-        .hero p {
+        .intro-text p {
             font-size: 1.15rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
             color: var(--charcoal);
-            opacity: 0.9;
         }
         
         .cta-button {
@@ -211,7 +199,6 @@
             padding: 1.2rem 3rem;
             text-decoration: none;
             border-radius: 50px;
-            font-family: 'DM Sans', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -263,26 +250,8 @@
         section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 7rem 2rem;
+            padding: 6rem 2rem;
             scroll-margin-top: 80px;
-        }
-        
-        .hero,
-        .for-you-section,
-        .expressive-writing,
-        .newsletter,
-        .booking {
-            max-width: 100%;
-        }
-        
-        .hero > *,
-        .for-you-section > *,
-        .expressive-writing > *,
-        .newsletter > *,
-        .booking > * {
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
         }
         
         .fade-in {
@@ -298,96 +267,29 @@
         
         .section-title {
             font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1.5rem;
+            margin-bottom: 3rem;
             color: var(--black);
             text-align: center;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--charcoal);
-            margin-bottom: 4rem;
-            opacity: 0.85;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Curved Divider */
-        .curved-divider {
-            width: 100%;
-            height: 80px;
-            background: var(--cream);
-            position: relative;
-            margin-top: -1px;
-        }
-        
-        .curved-divider svg {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
         }
         
         /* About Section */
         .about {
             background: white;
             border-radius: 30px;
-            padding: 5rem;
-            margin: 4rem auto;
+            padding: 4rem;
             box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-            position: relative;
-            overflow: hidden;
         }
         
-        .about::before {
-            content: '✨';
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-size: 3rem;
-            opacity: 0.1;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 4rem;
-            align-items: start;
-            justify-items: center;
-        }
-        
-        .about-content .profile-image {
-            justify-self: center;
-        }
-        
-        .about-text {
-            justify-self: start;
-        }
-        
-        .profile-image {
-            width: 100%;
-            max-width: 350px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-        }
-        
-        .profile-image:hover {
-            transform: scale(1.03) rotate(1deg);
-        }
-        
-        .about-text h2 {
+        .about h2 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
             color: var(--black);
         }
         
-        .about-text p {
+        .about p {
             margin-bottom: 1.5rem;
             font-size: 1.05rem;
+            line-height: 1.8;
         }
         
         .credentials {
@@ -408,73 +310,12 @@
             margin-bottom: 0.5rem;
         }
         
-        /* This Space Is For You Section */
-        .for-you-section {
-            background: linear-gradient(135deg, var(--soft-pink) 0%, rgba(232, 196, 188, 0.6) 100%);
-            padding: 7rem 2rem;
-            margin: 0;
-            position: relative;
-        }
-        
-        .for-you-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .for-you-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .for-you-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--sage) 0%, var(--deep-sage) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .for-you-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-        
-        .for-you-card:hover::before {
-            opacity: 0.03;
-        }
-        
-        .for-you-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--black);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .for-you-card p {
-            position: relative;
-            z-index: 1;
-        }
-        
         /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 3rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
         
         .service-card {
@@ -484,52 +325,28 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border-left: 5px solid var(--sage);
             transition: all 0.4s ease;
-            position: relative;
-        }
-        
-        .service-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 80px;
-            height: 80px;
-            background: var(--warm-beige);
-            border-radius: 0 20px 0 100%;
-            opacity: 0.3;
-            transition: all 0.3s ease;
         }
         
         .service-card:hover {
             box-shadow: 0 15px 45px rgba(0,0,0,0.15);
-            transform: translateY(-8px) rotate(-1deg);
+            transform: translateY(-8px);
             border-left-color: var(--accent-coral);
-        }
-        
-        .service-card:hover::after {
-            width: 120px;
-            height: 120px;
-            opacity: 0.5;
         }
         
         .service-card h3 {
             font-size: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: var(--black);
-            position: relative;
-            z-index: 1;
         }
         
         .service-card p {
-            position: relative;
-            z-index: 1;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
         }
         
         .service-card ul {
             list-style: none;
-            margin-top: 2rem;
-            position: relative;
-            z-index: 1;
+            margin-top: 1.5rem;
         }
         
         .service-card li {
@@ -556,98 +373,70 @@
         .expressive-writing {
             background: linear-gradient(135deg, var(--deep-sage) 0%, var(--sage) 100%);
             color: white;
-            padding: 8rem 2rem;
-            margin: 0;
+            padding: 6rem 2rem;
+            margin: 4rem 0 0 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
         
-        .expressive-writing::before {
-            content: '✍️';
-            position: absolute;
-            top: 10%;
-            left: 5%;
-            font-size: 8rem;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .expressive-writing::after {
-            content: '💭';
-            position: absolute;
-            bottom: 10%;
-            right: 5%;
-            font-size: 6rem;
-            opacity: 0.1;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .expressive-writing-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .expressive-writing h2 {
             color: white;
             font-size: clamp(2rem, 4vw, 3rem);
             margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
         
-        .expressive-writing .subtitle {
-            font-size: 1.3rem;
-            font-style: italic;
+        .expressive-writing p {
+            font-size: 1.15rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
+            line-height: 1.8;
         }
         
-        .expressive-writing > p {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .writing-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 4rem auto 0;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .writing-feature {
+        .writing-details {
             background: rgba(255, 255, 255, 0.15);
             padding: 2.5rem;
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            margin: 2rem auto;
+            max-width: 800px;
+            text-align: left;
         }
         
-        .writing-feature:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.3);
+        .writing-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
         }
         
-        .writing-feature h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
+        .writing-details ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .writing-details li {
+            padding: 0.7rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .writing-details li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
         }
         
         /* FAQ Section */
         .faq-section {
             background: var(--cream);
-            padding: 7rem 2rem;
+            padding: 6rem 2rem;
         }
         
         .faq-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -670,7 +459,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-family: 'DM Sans', sans-serif;
             font-weight: 600;
             font-size: 1.15rem;
             color: var(--black);
@@ -703,68 +491,10 @@
             padding: 0 2rem 2rem 2rem;
         }
         
-        /* Newsletter Section */
-        .newsletter {
-            background: linear-gradient(135deg, var(--accent-coral) 0%, #c96648 100%);
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-            margin: 0;
-        }
-        
-        .newsletter h2 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .newsletter p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            min-width: 250px;
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-family: 'EB Garamond', serif;
-        }
-        
-        .newsletter-form button {
-            padding: 1rem 2.5rem;
-            background: white;
-            color: var(--accent-coral);
-            border: none;
-            border-radius: 50px;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-        
-        .newsletter-form button:hover {
-            background: var(--warm-beige);
-            transform: translateY(-2px);
-        }
-        
         /* Booking Section */
         .booking {
             background: var(--warm-beige);
-            padding: 7rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
         }
         
@@ -811,7 +541,6 @@
             padding: 1.5rem 2rem;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            font-family: 'DM Sans', sans-serif;
             font-weight: 600;
             color: var(--deep-sage);
             font-size: 0.95rem;
@@ -859,21 +588,17 @@
         
         /* Mobile Responsive */
         @media (max-width: 1024px) {
-            section {
-                padding: 5rem 2rem;
-            }
-            
-            .about {
-                padding: 3rem;
-            }
-            
-            .about-content {
+            .hero-content {
                 grid-template-columns: 300px 1fr;
                 gap: 3rem;
             }
             
             .profile-image {
                 max-width: 300px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -900,33 +625,18 @@
             }
             
             .hero {
-                padding: 5rem 2rem;
+                padding: 4rem 2rem;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .about-content {
+            .hero-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                text-align: center;
             }
             
             .profile-image {
                 max-width: 280px;
                 margin: 0 auto;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .for-you-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .writing-features {
-                grid-template-columns: 1fr;
             }
             
             .about {
@@ -937,18 +647,10 @@
                 bottom: 1rem;
                 right: 1rem;
             }
-            
-            .newsletter-form {
-                flex-direction: column;
-            }
-            
-            .newsletter-form input {
-                min-width: 100%;
-            }
         }
         
         @media (max-width: 480px) {
-            .hero h1 {
+            .intro-text h1 {
                 font-size: 2rem;
             }
             
@@ -964,10 +666,14 @@
             .profile-image {
                 max-width: 250px;
             }
+            
+            .service-card {
+                padding: 2rem;
+            }
         }
         
         /* Focus States for Accessibility */
-        a:focus, button:focus, input:focus {
+        a:focus, button:focus {
             outline: 3px solid var(--accent-coral);
             outline-offset: 3px;
         }
@@ -998,97 +704,68 @@
         <a href="#booking" class="cta-button">Book Free Consultation</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero/Intro Section with Photo -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Hi 👋🏻 I'm Caroline</h1>
-            <p class="subtitle">This is a space where real talk meets therapy and expressive writing gets the spotlight</p>
-            <p>I'm a registered social worker and psychotherapist working in private practice. Together we can navigate anxiety, depression, grief, ADHD or just life in general 🤝 (I know I'm tired already too)</p>
-            <a href="#booking" class="cta-button">Book Your Free Consultation</a>
+            <img src="https://i.ibb.co/BVq2QbgR/320x400.jpg" alt="Caroline Duffy, RSW, MSW" class="profile-image">
+            <div class="intro-text">
+                <h1>Hi, I'm Caroline</h1>
+                <p>This is a space where real talk meets therapy and expressive writing gets the spotlight.</p>
+                <p>I'm a registered social worker and psychotherapist in private practice. Together we can navigate anxiety, depression, grief, ADHD, or just life in general.</p>
+                <a href="#booking" class="cta-button">Book Your Free Consultation</a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about fade-in">
-        <div class="about-content">
-            <img src="https://i.ibb.co/BVq2QbgR/320x400.jpg" alt="Caroline Duffy, RSW, MSW" class="profile-image">
-            <div class="about-text">
-                <h2>Welcome to Your Space</h2>
-                <p>Parenting a teenager who seems anxious, overwhelmed, or burned out can leave you wondering how to help without making things worse. Many of the youth I work with are bright, sensitive, and capable, yet internally they're struggling to keep up with school, relationships, and the pressure they feel to "hold it together."</p>
-                <p>I specialize in working with youth and teens ages 12–18 who experience anxiety, school stress, emotional overwhelm, friendship challenges, family relationship difficulties, and concerns related to self-esteem.</p>
-                <p>I take a collaborative approach that supports teens and includes parents in meaningful ways. Sessions are shaped around each teen's interests and strengths, helping create a therapeutic space they feel engaged in. Teens build understanding and skills, while parents receive guidance to support connection and communication at home.</p>
-                <div class="credentials">
-                    <h4>Credentials</h4>
-                    <p><strong>Caroline Duffy, RSW, MSW</strong></p>
-                    <p>Master of Social Work, University of Toronto</p>
-                    <p>Bachelor of Indigenous Social Work, Laurentian University</p>
-                    <p>Registered with Ontario Association of Social Workers</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- This Space Is For You -->
-    <section class="for-you-section">
-        <h2 class="section-title fade-in" style="color: var(--black);">This Space Is For You If...</h2>
-        <div class="for-you-grid">
-            <div class="for-you-card fade-in">
-                <h3>I've got a lot on my mind (all the time)</h3>
-                <p>Your thoughts are running a marathon and you need a place to slow down and make sense of it all</p>
-            </div>
-            <div class="for-you-card fade-in">
-                <h3>I'm looking for practical mental health 'tools' (that actually work)</h3>
-                <p>You're ready for strategies that fit into real life, not just theory</p>
-            </div>
-            <div class="for-you-card fade-in">
-                <h3>I'm ready to heal (maybe)</h3>
-                <p>You're curious about therapy, even if you're not 100% sure where to start</p>
-            </div>
+        <h2>About Me</h2>
+        <p>I work with youth, teens, and adults who are navigating the challenges of life. Whether you're a parent wondering how to support a teenager who seems anxious or overwhelmed, or an adult feeling scattered and exhausted, I'm here to help.</p>
+        
+        <p>My approach is collaborative and trauma-informed. I blend evidence-based tools like Dialectical Behavior Therapy, Cognitive Behavioural Therapy, and mindfulness-based approaches with creativity and expressive arts. Sessions are flexible and tailored to what you're actually going through, whether that includes conversation, practical tools, creative expression, or simply slowing things down when life feels overwhelming.</p>
+        
+        <p>I specialize in working with neuro-divergent folks, especially those with ADHD. I work with people who feel overwhelmed, scattered, or like they're "too much" but also exhausted from trying to be someone they're not. Together, we'll build understanding, self-trust, and tools that actually work for you.</p>
+        
+        <div class="credentials">
+            <h4>Credentials</h4>
+            <p><strong>Caroline Duffy, RSW, MSW</strong></p>
+            <p>Master of Social Work, University of Toronto</p>
+            <p>Bachelor of Indigenous Social Work, Laurentian University</p>
+            <p>Registered Social Worker with Ontario Association of Social Workers</p>
+            <p>Licensed by Province of Ontario #841998</p>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services">
         <h2 class="section-title fade-in">What I Can Help With</h2>
-        <p class="section-subtitle fade-in">Here's the vibe: 🧠 Practical tools to help you make sense of your mind<br>✍️ Writing as a way to build connection with yourself and others<br>🫶🏻 Support that feels completely relevant for how beautifully exhausting life can be</p>
         
         <div class="services-grid">
             <div class="service-card fade-in">
-                <h3>For Teens & Youth (12-18)</h3>
-                <p>A space for teens to make sense of things all from the comfort of their own home. Therapy with me is flexible and tailored to what a teen is actually going through.</p>
+                <h3>Youth & Teens</h3>
+                <p>I specialize in working with youth and teens ages 12–18. Sessions are shaped around each teen's interests and strengths, creating a therapeutic space they feel engaged in. Teens build understanding and skills, while parents receive guidance to support connection and communication at home.</p>
                 <ul>
                     <li>Anxiety & stress management</li>
-                    <li>School stress & academic pressure</li>
-                    <li>Friendship challenges</li>
-                    <li>Family relationship difficulties</li>
-                    <li>Self-esteem & identity</li>
+                    <li>Depression</li>
                     <li>ADHD support</li>
+                    <li>School stress & academic pressure</li>
+                    <li>Grief & loss</li>
+                    <li>Relationship challenges</li>
+                    <li>Self-esteem & identity</li>
                 </ul>
             </div>
             
             <div class="service-card fade-in">
-                <h3>For Adults</h3>
-                <p>Supporting neuro-divergent folks, especially those with ADHD, is close to my heart. I work with adults who feel overwhelmed, scattered, or like they're "too much" - but also exhausted from trying to be someone they're not.</p>
+                <h3>Adults</h3>
+                <p>I work with adults navigating the complexities of life, relationships, and self-understanding. Whether you're dealing with recent challenges or long-standing patterns, we'll work together to find what helps.</p>
                 <ul>
                     <li>ADHD & neurodivergence</li>
                     <li>Anxiety & depression</li>
-                    <li>Life transitions</li>
-                    <li>Relationship issues</li>
                     <li>Grief & loss</li>
+                    <li>Relationship issues</li>
+                    <li>Life transitions</li>
                     <li>Trauma & PTSD</li>
-                </ul>
-            </div>
-            
-            <div class="service-card fade-in">
-                <h3>My Approach</h3>
-                <p>Sessions may include conversation, practical tools, creative expression, or simply slowing things down when life feels overwhelming. We focus on what feels helpful and manageable in the moment.</p>
-                <ul>
-                    <li>Trauma-informed care</li>
-                    <li>Dialectical Behavior Therapy (DBT)</li>
-                    <li>Cognitive Behavioural Therapy (CBT)</li>
-                    <li>Expressive Arts</li>
-                    <li>Attachment-based therapy</li>
-                    <li>Mindfulness-Based approaches</li>
+                    <li>Self-esteem</li>
                 </ul>
             </div>
         </div>
@@ -1096,34 +773,24 @@
 
     <!-- Expressive Writing Section -->
     <section id="expressive-writing" class="expressive-writing">
-        <h2 class="fade-in">🎙️ Expressive Writing</h2>
-        <p class="subtitle fade-in">The messy, chaotic, unfiltered cousin of journaling who may spill too much tea at the family reunion</p>
-        <p class="fade-in" style="max-width: 800px; margin: 0 auto 2rem;">In all seriousness, what even is expressive writing? It's a powerful tool for processing emotions, building self-awareness, and connecting with yourself in a whole new way.</p>
-        
-        <div class="writing-features">
-            <div class="writing-feature fade-in">
-                <h4>🚫 A judgement free zone</h4>
-                <p>No rules, no perfection needed</p>
-            </div>
-            <div class="writing-feature fade-in">
-                <h4>🖊️ Find your flow</h4>
-                <p>Get out raw, messy emotions without filtering</p>
-            </div>
-            <div class="writing-feature fade-in">
-                <h4>🥲 No structure required</h4>
-                <p>Follow the mind and see where it goes</p>
-            </div>
-            <div class="writing-feature fade-in">
-                <h4>🫶🏻 Led with compassion</h4>
-                <p>Curiosity over perfection, always</p>
-            </div>
-            <div class="writing-feature fade-in">
-                <h4>💬 Say what's real</h4>
-                <p>Write what's on your mind, not what you 'should' say</p>
+        <div class="expressive-writing-content">
+            <h2 class="fade-in">Expressive Writing</h2>
+            <p class="fade-in">A powerful tool for processing emotions, building self-awareness, and connecting with yourself in a new way.</p>
+            
+            <div class="writing-details fade-in">
+                <h3>Therapeutic Writing Group</h3>
+                <p>A 2-hour closed group where we use expressive writing as a therapeutic tool. This is a judgement-free zone where you can:</p>
+                <ul>
+                    <li>Find flow in getting out raw, messy emotions</li>
+                    <li>Follow your mind without structure</li>
+                    <li>Write with compassion and curiosity</li>
+                    <li>Say what's on your mind, not what you think you should write</li>
+                </ul>
+                <p style="margin-top: 1.5rem; text-align: center;">
+                    <a href="#booking" class="cta-button">Get More Information</a>
+                </p>
             </div>
         </div>
-        
-        <p style="margin-top: 3rem; font-size: 1.2rem;">💌 Ready for the emotionally unhinged era starter kit? 💌</p>
     </section>
 
     <!-- FAQ Section -->
@@ -1177,16 +844,6 @@
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <h2 class="fade-in">Stay Connected</h2>
-        <p class="fade-in">Get expressive writing tips, mental health insights, and real talk delivered to your inbox</p>
-        <form class="newsletter-form fade-in" onsubmit="event.preventDefault(); alert('Newsletter signup coming soon!');">
-            <input type="email" placeholder="Enter your email" required>
-            <button type="submit">Subscribe</button>
-        </form>
-    </section>
-
     <!-- Booking Section -->
     <section id="booking" class="booking">
         <div class="booking-content">
@@ -1202,20 +859,19 @@
                     <h3>Session Details</h3>
                     <p><strong>Individual Sessions:</strong> $150</p>
                     <p><strong>Sliding scale available</strong> - inquire if you may be eligible</p>
-                    <p style="margin-top: 1rem; font-size: 0.95rem;">Sessions can be billed under Social Work or Psychology Benefits. Please inquire before your appointment about coverage/options for billing.</p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem;">Sessions can be billed under Social Work or Psychology Benefits. Please inquire before your appointment about coverage options.</p>
                 </div>
             </div>
             
             <div class="trust-badges fade-in">
-                <div class="badge">🔒 Secure & Confidential</div>
-                <div class="badge">✓ OASW Member</div>
-                <div class="badge">💚 Ontario Licensed</div>
+                <div class="badge">Secure & Confidential</div>
+                <div class="badge">OASW Member</div>
+                <div class="badge">Ontario Licensed</div>
             </div>
             
             <div class="contact-info fade-in">
                 <p><strong>Phone:</strong> <a href="tel:+14373202962">(437) 320-2962</a></p>
                 <p><strong>Location:</strong> Online therapy available throughout Ontario</p>
-                <p style="margin-top: 1.5rem; font-size: 0.95rem;">Available online only - sessions from the comfort of your own home</p>
             </div>
         </div>
     </section>
