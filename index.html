@@ -267,6 +267,24 @@
             scroll-margin-top: 80px;
         }
         
+        .hero,
+        .for-you-section,
+        .expressive-writing,
+        .newsletter,
+        .booking {
+            max-width: 100%;
+        }
+        
+        .hero > *,
+        .for-you-section > *,
+        .expressive-writing > *,
+        .newsletter > *,
+        .booking > * {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -334,13 +352,24 @@
         
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 350px 1fr;
             gap: 4rem;
             align-items: start;
+            justify-items: center;
+        }
+        
+        .about-content .profile-image {
+            justify-self: center;
+        }
+        
+        .about-text {
+            justify-self: start;
         }
         
         .profile-image {
             width: 100%;
+            max-width: 350px;
+            height: auto;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             transition: transform 0.3s ease;
@@ -837,6 +866,15 @@
             .about {
                 padding: 3rem;
             }
+            
+            .about-content {
+                grid-template-columns: 300px 1fr;
+                gap: 3rem;
+            }
+            
+            .profile-image {
+                max-width: 300px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -872,6 +910,11 @@
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+            
+            .profile-image {
+                max-width: 280px;
+                margin: 0 auto;
             }
             
             .services-grid {
@@ -916,6 +959,10 @@
             .cta-button {
                 padding: 1rem 2rem;
                 font-size: 1rem;
+            }
+            
+            .profile-image {
+                max-width: 250px;
             }
         }
         
