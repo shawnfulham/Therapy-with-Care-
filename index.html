@@ -596,7 +596,7 @@
             padding: clamp(1.5rem, 3vw, 2.5rem);
             border-radius: 15px;
             margin-top: clamp(1.5rem, 3vw, 2.5rem);
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -608,59 +608,10 @@
             font-size: clamp(1.1rem, 1.5vw, 1.3rem);
         }
 
-        .email-form input {
-            width: 100%;
-            padding: clamp(0.8rem, 1.5vw, 1.2rem);
-            margin-bottom: 1rem;
-            border: 2px solid var(--warm-beige);
-            border-radius: 10px;
-            font-size: clamp(0.95rem, 1.2vw, 1.05rem);
-            font-family: 'EB Garamond', serif;
-            transition: border-color 0.3s ease;
-        }
-
-        .email-form input:focus {
-            outline: none;
-            border-color: var(--accent-coral);
-        }
-
-        .email-form .submit-button {
-            width: 100%;
-            background: var(--accent-coral);
-            color: white;
-            padding: clamp(0.9rem, 1.5vw, 1.2rem);
+        .email-form iframe {
             border: none;
             border-radius: 10px;
-            font-size: clamp(1rem, 1.3vw, 1.15rem);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .email-form .submit-button:hover {
-            background: var(--deep-sage);
-            transform: translateY(-2px);
-        }
-
-        .form-message {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            display: none;
-            font-size: clamp(0.9rem, 1.1vw, 1rem);
-        }
-
-        .form-message.success {
-            background: #d4edda;
-            color: #155724;
-            display: block;
-        }
-
-        .form-message.error {
-            background: #f8d7da;
-            color: #721c24;
-            display: block;
+            max-width: 100%;
         }
         
         /* FAQ Section */
@@ -1024,12 +975,7 @@
                 
                 <div class="email-form">
                     <h4>Get More Information</h4>
-                    <form id="writingInfoForm">
-                        <input type="text" id="nameInput" placeholder="Your Name" required>
-                        <input type="email" id="emailInput" placeholder="Your Email" required>
-                        <button type="submit" class="submit-button">Send Inquiry</button>
-                    </form>
-                    <div id="formMessage" class="form-message"></div>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdCjz00oLn39SkFUnbRCSAOwb805_9bOrO92locsV5DhjYK1A/viewform?embedded=true" width="100%" height="605" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
             </div>
         </div>
@@ -1306,33 +1252,6 @@
                     answer.classList.add('active');
                 }
             });
-        });
-
-        // Email form submission
-        document.getElementById('writingInfoForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('nameInput').value;
-            const email = document.getElementById('emailInput').value;
-            const formMessage = document.getElementById('formMessage');
-            
-            // Create mailto link
-            const subject = encodeURIComponent('Expressive Writing Group Information Request');
-            const body = encodeURIComponent(`Hi Caroline,\n\nI'm interested in learning more about the Expressive Writing Group.\n\nName: ${name}\nEmail: ${email}\n\nPlease reach out to me with more information.\n\nThank you!`);
-            const mailtoLink = `mailto:info@therapywithcare.ca?subject=${subject}&body=${body}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            formMessage.textContent = 'Opening your email client... Please send the email to complete your inquiry.';
-            formMessage.className = 'form-message success';
-            
-            // Reset form
-            setTimeout(() => {
-                document.getElementById('writingInfoForm').reset();
-                formMessage.style.display = 'none';
-            }, 5000);
         });
     </script>
 </body>
